@@ -1,8 +1,6 @@
 /*------ PART 1 -------------------------*/
 /* 1. Change the background-color for the body to #1695A3*/
-body{
-    background-color: #1695A3*;
-    color: #FFFFFF*;
+body{ background-color:green;
 }
 
 /* 2. Change the text color for the body to #FFFFFF*/
