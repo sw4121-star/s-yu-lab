@@ -9,8 +9,7 @@ color: white;
 
 /* 3. Change the text color for the paragraph element to #EB7F00*/
 
-p {
-    color: #EB7F00*;
+p {color: #EB7F00;
 }
 
 /*------ PART 2 -------------------------*/
