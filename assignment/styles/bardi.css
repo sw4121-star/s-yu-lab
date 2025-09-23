@@ -11,6 +11,10 @@ p {
     font-size: 12px;
 }
 
+h3 {
+    font-size: xx-small;
+}
+
 .box {
     background-color: grey;
 }
@@ -25,5 +29,4 @@ a:link {
 
 .lead {
 font-style: italic;
-font-size: xx-small;
 }
