@@ -6,5 +6,6 @@ color: white;
 
 p {
     color: black;
-    font-size: 48px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px;
 }
