@@ -24,6 +24,10 @@ h2 {
     background-color: grey;
 }
 
+.box2 {
+    background-color: white;
+}
+
 a:link {
     color: aqua;
 }
