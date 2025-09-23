@@ -13,3 +13,7 @@ p {
 .box {
     background-color: grey;
 }
+
+a:link {
+    color: aqua;
+}
