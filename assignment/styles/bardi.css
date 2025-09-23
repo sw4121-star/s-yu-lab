@@ -17,3 +17,11 @@ p {
 a:link {
     color: aqua;
 }
+
+.title {
+    color: black;
+}
+
+.lead {
+font-style: italic;
+}
