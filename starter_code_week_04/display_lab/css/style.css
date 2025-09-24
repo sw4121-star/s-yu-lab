@@ -38,7 +38,9 @@ h1, h2, h3 {
 /*2. Update the display property of the anchors in Part 2 so that each item is on its own line.*/
 
 
-
+a{
+	display: block;
+}
 
 /*3. Update the display property in Part 3 to hide the image of the cat.*/
 
