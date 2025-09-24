@@ -44,12 +44,16 @@ a{
 
 /*3. Update the display property in Part 3 to hide the image of the cat.*/
 
-
+img{
+	display: none;
+}
 
 
 /*4. Align the strong tag in part 4 to the right.*/
 
-
+p{
+	display: flex;
+}
 
 
 
