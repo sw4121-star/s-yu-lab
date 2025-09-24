@@ -58,5 +58,11 @@ p{
 
 
 
+html, body {
+	height: 100%;
+}
 
 
+header, footer {
+	background-color: black;
+}
