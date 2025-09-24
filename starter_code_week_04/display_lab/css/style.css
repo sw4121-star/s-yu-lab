@@ -31,7 +31,9 @@ REFER TO YOUR CHEAT SHEETS IF YOU CAN'T REMEMBER THE DIFFERENCE
 We want to make sure that they still respect properties like padding, margin, width and height.
 */
 
-
+h1, h2, h3 {
+	display: inline-block;
+}
 
 /*2. Update the display property of the anchors in Part 2 so that each item is on its own line.*/
 
