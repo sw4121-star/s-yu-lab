@@ -57,7 +57,7 @@ header {
 .gallery a:nth-child(4) img { transform: rotate(6deg) translate(-5px, -30px); }
 
 .gallery img:hover {
-  transform: scale(1.1) rotate(0deg);
+  transform: scale(1.5) rotate(0deg);
   z-index: 10;
 }
 
