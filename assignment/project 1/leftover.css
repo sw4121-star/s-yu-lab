@@ -48,16 +48,23 @@ header {
   transition: transform 0.3s;
 }
 
-/* "Random" offsets by nth-child */
-.gallery a:nth-child(1) img { transform: rotate(-5deg) translate(10px, 20px); }
-.gallery a:nth-child(2) img { transform: rotate(8deg) translate(-20px, 30px); }
-.gallery a:nth-child(3) img { transform: rotate(-12deg) translate(15px, -10px); }
-.gallery a:nth-child(4) img { transform: rotate(6deg) translate(-5px, -25px); }
+.gallery img {
+  width: 250px;   /* bigger size */
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.gallery a:nth-child(1) img { transform: rotate(-5deg) translate(20px, 40px); }
+.gallery a:nth-child(2) img { transform: rotate(8deg) translate(-40px, 50px); }
+.gallery a:nth-child(3) img { transform: rotate(-12deg) translate(30px, -20px); }
+.gallery a:nth-child(4) img { transform: rotate(6deg) translate(-10px, -50px); }
 
 .gallery img:hover {
-  transform: scale(1.1) rotate(0deg); /* bring back straight on hover */
+  transform: scale(1.1) rotate(0deg);
   z-index: 10;
 }
+
 
 
 main {
