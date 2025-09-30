@@ -25,9 +25,12 @@ h2 {
     font-size: 20px;
 }
 
+.entries{
+  background-color: #D1F7FF;
+}
+
 .entry{
-    background-color: #D1F7FF
-;
+  
     padding: 5%;
 }
 
