@@ -3,15 +3,16 @@ body {
 }
 
 
+
 body {
   margin: 0;
   font-family: sans-serif;
   display: grid;
-  grid-template-rows: auto 1fr auto; /* header, main, footer */
+  grid-template-rows: auto auto 1fr auto;
   min-height: 100vh;
 }
 
-/* Header */
+
 header {
   background: #4a90e2;
   color: white;
@@ -19,25 +20,26 @@ header {
   text-align: center;
 }
 
-/* Main with 4 rows */
-main {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
-  gap: 1rem;
-  padding: 1rem;
-  background: #f9f9f9;
-}
 
-/* Each section in main */
-main section {
-  background: #e0e0e0;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  text-align: center;
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  background: #f0f0f0;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
   border-radius: 6px;
 }
 
-/* Footer */
+
+main {
+  padding: 2rem;
+  background: #fff;
+}
+
+
 footer {
   background: #333;
   color: white;
