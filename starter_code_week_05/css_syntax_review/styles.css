@@ -15,7 +15,7 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 9vw; /* 9% of viewport width */
+    font-size: 12vw; /* 9% of viewport width */
     line-height: 1.1;
     font-family: 'Yatra One', cursive;
     margin-bottom: 0;
