@@ -3,18 +3,15 @@ body {
 }
 
 
-/* Page split into 4 vertical rows:
-   1) header, 2) photo gallery, 3) body text, 4) footer */
-
 body {
   margin: 0;
   font-family: sans-serif;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto 1fr auto; /* header, main, footer */
   min-height: 100vh;
 }
 
-/* Row 1: Header */
+/* Header */
 header {
   background: #4a90e2;
   color: white;
@@ -22,28 +19,25 @@ header {
   text-align: center;
 }
 
-/* Row 2: Photo gallery */
-.gallery {
+/* Main with 4 rows */
+main {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 pictures in one line */
-  gap: 0.5rem;
+  grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
+  gap: 1rem;
   padding: 1rem;
-  background: #f0f0f0;
+  background: #f9f9f9;
 }
-.gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
+
+/* Each section in main */
+main section {
+  background: #e0e0e0;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  text-align: center;
   border-radius: 6px;
 }
 
-/* Row 3: Main body text */
-main {
-  padding: 2rem;
-  background: #fff;
-}
-
-/* Row 4: Footer */
+/* Footer */
 footer {
   background: #333;
   color: white;
