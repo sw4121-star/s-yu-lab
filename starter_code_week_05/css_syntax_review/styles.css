@@ -1,0 +1,45 @@
+body {
+    background-color: #e2ff59;
+    font-family: Helvetica;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: rgb(48, 186, 255);
+}
+
+h1, h2 {
+    font-weight: normal;
+    text-align: center;
+}
+
+h1 {
+    font-size: 12vw; /* 9% of viewport width */
+    line-height: 1.1;
+    font-family: 'Brush Script MT',Phyllis,'Lucida Handwriting',cursive;;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.entries{
+  background-color: #D1F7FF;
+}
+
+.entry{
+  
+    padding: 5%;
+}
+
+/*
+    Instructions:
+    Look at the index.html file, you should see classes added to the HTML elements.
+    - Add a background color to the wrapper
+    - Add a background color to the entries
+    - Add some padding to each entry
+    - Make heading a different font and a larger font size
+    - Make the default font-size 20px
+*/
