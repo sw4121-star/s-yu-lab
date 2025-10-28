@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tracing the City — Vertical Garden</title>
-<link rel="stylesheet" href="project2.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tracing the City — Vertical Garden</title>
+  <link rel="stylesheet" href="project2.css" />
 </head>
 <body>
-<header>
-<div class="brand" role="banner">
-<h1>Build A City</h1>
+  <header>
+    <div class="brand">
+      <h1>Build A City</h1>
+    </div>
+  </header>
 
-</div>
-</header>
-
-
-<main class="container" id="app">
-<section id="indexView" aria-label="索引 (大楼)" class="building" role="list"></section>
-
-
-<section id="detailView" class="detail" aria-live="polite">
-<div class="meta">
-<div class="title" id="detailTitle">&nbsp;</div>
-<a href="#" id="backBtn" class="back" aria-label="返回索引">↩ 返回</a>
-</div>
-<figure class="hero" id="heroFigure">
-<img id="heroImg" alt="" />
-<figcaption class="visually-hidden" id="heroCaption"></figcaption>
-<div class="thumb" aria-hidden="true">
-<img id="thumbImg" alt="缩略图" />
-</div>
-</figure>
-</section>
-</main>
-
-
-<footer>
-<p><strong>替换图片提示：</strong>在下方 <code>entries</code> 数组里把 <code>img</code> 与 <code>thumb</code> 的链接换成你的照片（建议本地 <code>img/</code> 文件夹）。图片都带 <code>alt</code> 文本以增强无障碍。</p>
-</footer>
-
-
-<script src="script.js"></script>
+  <main class="container">
+    <section class="building">
+      <div class="block">
+        <img src="img/air_1.jpeg" alt="Air">
+        <h2 class="name">Air</h2>
+      </div>
+      <div class="block">
+        <img src="img/roof_index.jpg" alt="Roof">
+        <h2 class="name">Roof</h2>
+      </div>
+      <div class="block">
+        <img src="img/plumbing_index.jpg" alt="Plumbing">
+        <h2 class="name">Plumbing</h2>
+      </div>
+      <div class="block">
+        <img src="img/room_index.jpg" alt="Room">
+        <h2 class="name">Room</h2>
+      </div>
+      <div class="block">
+        <img src="img/ground_index.jpg" alt="Ground">
+        <h2 class="name">Ground</h2>
+      </div>
+      <div class="block">
+        <img src="img/street_index.jpg" alt="Street">
+        <h2 class="name">Street</h2>
+      </div>
+      <div class="block">
+        <img src="img/habitants_index.jpg" alt="Habitants">
+        <h2 class="name">Habitants</h2>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
