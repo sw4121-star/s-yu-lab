@@ -23,7 +23,7 @@ a:focus-visible, button:focus-visible{ outline: 3px solid #0ea5e9; outline-offse
 .container{ width:min(1100px, 92%); margin-inline:auto; padding: clamp(16px, 4vw, 40px) 0 80px; }
 header{ position: sticky; top:0; z-index:30; backdrop-filter: blur(3px); background: linear-gradient(to bottom, rgba(255,255,255,.85), rgba(255,255,255,.55)); border-bottom: 1px solid #e5e7eb; }
 .brand{ display:flex; align-items: baseline; gap:.5rem; padding: 14px 0; width:min(1100px, 92%); margin:auto; }
-.brand h1{ font-weight:800; letter-spacing:.02em; margin:0; font-size: clamp(20px, 3.2vw, 36px); transform: skew(var(--skew)); }
+.brand h1{ font-weight:800; letter-spacing:.02em; margin:0; font-size: clamp(40px, 3.2vw, 36px); transform: skew(var(--skew)); }
 .brand p{ margin:0; color:var(--muted); font-size: clamp(12px, 1.6vw, 14px); }
 .building{ display:flex; flex-direction: column; gap: var(--gap); margin-top: clamp(18px, 3.4vw, 32px); }
 .block{ position: relative; display:grid; grid-template-columns: 1fr auto; gap: clamp(14px, 2vw, 28px); align-items: end; min-height: var(--block-h); border: 1px solid #00000014; background: #fff; box-shadow: var(--shadow); padding: clamp(12px, 2.4vw, 24px); }
