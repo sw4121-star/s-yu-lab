@@ -3,46 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tracing the City — Vertical Garden</title>
+  <title>Build A City — Tracing the City</title>
   <link rel="stylesheet" href="project2.css" />
 </head>
 <body>
   <header>
-    <div class="brand">
+    <div class="brand" role="banner">
       <h1>Build A City</h1>
     </div>
   </header>
 
   <main class="container">
-    <section class="building">
-      <div class="block">
-        <img src="img/air_2.jpeg" alt="Air">
-        <h2 class="name">Air</h2>
-      </div>
-      <div class="block">
-        <img src="img/roof_index.jpg" alt="Roof">
-        <h2 class="name">Roof</h2>
-      </div>
-      <div class="block">
-        <img src="img/plumbing_index.jpg" alt="Plumbing">
-        <h2 class="name">Plumbing</h2>
-      </div>
-      <div class="block">
-        <img src="img/room_index.jpg" alt="Room">
-        <h2 class="name">Room</h2>
-      </div>
-      <div class="block">
-        <img src="img/ground_index.jpg" alt="Ground">
-        <h2 class="name">Ground</h2>
-      </div>
-      <div class="block">
-        <img src="img/street_index.jpg" alt="Street">
-        <h2 class="name">Street</h2>
-      </div>
-      <div class="block">
-        <img src="img/people.jpg" alt="Habitants">
-        <h2 class="name">Habitants</h2>
-      </div>
+    <section class="building" role="list">
+      <!-- Air -->
+      <article class="block" role="listitem">
+        <img src="air_1.jpeg" alt="Air — primary image" />
+        <h2 class="name"><a href="air.html">Air</a></h2>
+      </article>
+
+      <!-- Roof -->
+      <article class="block" role="listitem">
+        <img src="roof_1.jpg" alt="Roof — primary image" />
+        <h2 class="name"><a href="roof.html">Roof</a></h2>
+      </article>
+
+      <!-- Plumbing -->
+      <article class="block" role="listitem">
+        <img src="plumbing_1.jpeg" alt="Plumbing — primary image" />
+        <h2 class="name"><a href="plumbing.html">Plumbing</a></h2>
+      </article>
+
+      <!-- Room -->
+      <article class="block" role="listitem">
+        <!-- note the space: use %20 in URLs if you keep the filename with spaces -->
+        <img src="room%20in%20bk.jpg" alt="Room — primary image" />
+        <h2 class="name"><a href="room.html">Room</a></h2>
+      </article>
+
+      <!-- Ground -->
+      <article class="block" role="listitem">
+        <img src="ground_1.jpg" alt="Ground — primary image" />
+        <h2 class="name"><a href="ground.html">Ground</a></h2>
+      </article>
+
+      <!-- Street -->
+      <article class="block" role="listitem">
+        <img src="Street_1.jpg" alt="Street — primary image" />
+        <h2 class="name"><a href="street.html">Street</a></h2>
+      </article>
+
+      <!-- Habitants -->
+      <article class="block" role="listitem">
+        <img src="people.jpg" alt="Habitants — primary image" />
+        <h2 class="name"><a href="habitants.html">Habitants</a></h2>
+      </article>
     </section>
   </main>
 </body>
