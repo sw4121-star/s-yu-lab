@@ -1,11 +1,11 @@
 const entries = [
-{ id:'Air', name:'Kowloon Corridor', img:'https://picsum.photos/id/1011/1600/1000', thumb:'https://picsum.photos/id/1011/400/250', alt:'潮湿的走廊，陈旧瓷砖上映出霓虹反光' },
-{ id:'Roof', name:'Lilong Threshold', img:'https://picsum.photos/id/1024/1600/1000', thumb:'https://picsum.photos/id/1024/400/250', alt:'石库门的门框边缘，被手掌磨亮' },
-{ id:'Plumbing', name:'Hutong Wall Ghost', img:'https://picsum.photos/id/1031/1600/1000', thumb:'https://picsum.photos/id/1031/400/250', alt:'被撕去的海报留下浅浅文字幽灵' },
-{ id:'Room', name:'Bund Patina', img:'https://picsum.photos/id/1043/1600/1000', thumb:'https://picsum.photos/id/1043/400/250', alt:'金属栏杆被海风氧化的铜绿' },
-{ id:'Ground', name:'Manhattan Bridge Echo', img:'https://picsum.photos/id/1050/1600/1000', thumb:'https://picsum.photos/id/1050/400/250', alt:'桥下回声与光线碎片' },
-{ id:'Street', name:'Times Square Burn-in', img:'https://picsum.photos/id/1067/1600/1000', thumb:'https://picsum.photos/id/1067/400/250', alt:'LED 屏残影叠加在玻璃幕墙' },
-{ id:'Habitants', name:'Ginza Alley Grain', img:'https://picsum.photos/id/1074/1600/1000', thumb:'https://picsum.photos/id/1074/400/250', alt:'狭窄巷道的木纹围挡' }
+{ id:'Air', name:'Airr', img:'https://picsum.photos/id/1011/1600/1000', thumb:'https://picsum.photos/id/1011/400/250', alt:'潮湿的走廊，陈旧瓷砖上映出霓虹反光' },
+{ id:'Roof', name:'Roof', img:'https://picsum.photos/id/1024/1600/1000', thumb:'https://picsum.photos/id/1024/400/250', alt:'石库门的门框边缘，被手掌磨亮' },
+{ id:'Plumbing', name:'Plumbing', img:'https://picsum.photos/id/1031/1600/1000', thumb:'https://picsum.photos/id/1031/400/250', alt:'被撕去的海报留下浅浅文字幽灵' },
+{ id:'Room', name:'Room', img:'https://picsum.photos/id/1043/1600/1000', thumb:'https://picsum.photos/id/1043/400/250', alt:'金属栏杆被海风氧化的铜绿' },
+{ id:'Ground', name:'Ground', img:'https://picsum.photos/id/1050/1600/1000', thumb:'https://picsum.photos/id/1050/400/250', alt:'桥下回声与光线碎片' },
+{ id:'Street', name:'Street', img:'https://picsum.photos/id/1067/1600/1000', thumb:'https://picsum.photos/id/1067/400/250', alt:'LED 屏残影叠加在玻璃幕墙' },
+{ id:'Habitants', name:'Habitants', img:'https://picsum.photos/id/1074/1600/1000', thumb:'https://picsum.photos/id/1074/400/250', alt:'狭窄巷道的木纹围挡' }
 ];
 const indexView = document.getElementById('indexView');
 const detailView = document.getElementById('detailView');
