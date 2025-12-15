@@ -1,5 +1,11 @@
 // =====================================================
-// Project2 Catalog — Full Vanilla JS (Local Images 1–20)
+// Dumps Catalog — Full Vanilla JS (20 items, linear strips)
+// - No infinite scroll
+// - Each image = one strip (one paragraph)
+// - Bigger images
+// - Hover (no click) => green zoom popup
+// - Collage ↔ List toggle + Filter + Sort
+// - Local PNG paths: ./images/1.png ... ./images/20.png
 // =====================================================
 
 // ----------------------
@@ -28,10 +34,9 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 const isTouch = window.matchMedia("(hover: none)").matches;
 
 // ----------------------
-// Data (LOCAL)
-// - You asked for ./images/1.jpg format
+// Data: 1–20 (PNG)
 // ----------------------
-const items = [
+const allItems = [
   { title: "Dump 1",  main_image: "./images/1.png",  zoom_image: "./images/1.png",  tag: "plastic", rarity: "common" },
   { title: "Dump 2",  main_image: "./images/2.png",  zoom_image: "./images/2.png",  tag: "plastic", rarity: "common" },
   { title: "Dump 3",  main_image: "./images/3.png",  zoom_image: "./images/3.png",  tag: "paper",   rarity: "uncommon" },
@@ -54,26 +59,13 @@ const items = [
   { title: "Dump 20", main_image: "./images/20.png", zoom_image: "./images/20.png", tag: "plastic", rarity: "legendary" }
 ];
 
-
 // ----------------------
 // State
 // ----------------------
-let allItems = [...items];
 let filteredItems = [];
 let viewMode = "collage"; // collage | list
 
-// infinite scroll: each "strip" renders N items
-const perStrip = 20;
-let renderedCount = 0;
-
-// rarity sorting weights
-const rarityOrder = {
-  common: 1,
-  uncommon: 2,
-  rare: 3,
-  epic: 4,
-  legendary: 5
-};
+const rarityOrder = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5 };
 
 // ----------------------
 // Utils
@@ -122,7 +114,6 @@ function setZoomContent(item) {
 function showZoomAt(x, y) {
   if (!zoomEl) return;
 
-  // make sure it has layout before positioning
   zoomEl.classList.remove("hidden");
 
   const w = zoomEl.offsetWidth || 230;
@@ -141,22 +132,43 @@ function hideZoom() {
   zoomEl.classList.add("hidden");
 }
 
+function attachZoomInteraction(el, item) {
+  if (!isTouch) {
+    el.addEventListener("mouseenter", (e) => {
+      setZoomContent(item);
+      showZoomAt(e.clientX, e.clientY);
+    });
+    el.addEventListener("mousemove", (e) => {
+      showZoomAt(e.clientX, e.clientY);
+    });
+    el.addEventListener("mouseleave", hideZoom);
+  } else {
+    // mobile: tap to toggle
+    el.addEventListener("click", () => {
+      const hidden = zoomEl.classList.contains("hidden");
+      if (hidden) {
+        setZoomContent(item);
+        showZoomAt(window.innerWidth * 0.5, window.innerHeight * 0.25);
+      } else {
+        hideZoom();
+      }
+    });
+  }
+}
+
 // ----------------------
-// Filtering + Sorting
+// Controls: filter + sort
 // ----------------------
 function populateTagFilter() {
   if (!tagFilterEl) return;
 
-  // reset options to keep "All"
-  const keepFirst = tagFilterEl.querySelector('option[value="all"]');
+  // keep "All tags"
+  const first = document.createElement("option");
+  first.value = "all";
+  first.textContent = "All tags";
+
   tagFilterEl.innerHTML = "";
-  if (keepFirst) tagFilterEl.appendChild(keepFirst);
-  else {
-    const opt = document.createElement("option");
-    opt.value = "all";
-    opt.textContent = "All tags";
-    tagFilterEl.appendChild(opt);
-  }
+  tagFilterEl.appendChild(first);
 
   uniqueTags(allItems).forEach(t => {
     const opt = document.createElement("option");
@@ -186,103 +198,82 @@ function applyFilterAndSort() {
     });
   }
 
-  // reset render
-  renderedCount = 0;
-  if (collageEl) collageEl.innerHTML = "";
-  if (listGridEl) listGridEl.innerHTML = "";
-  hideZoom();
-
-  renderNextStrip(); // render first strip immediately
+  renderView(); // IMPORTANT: render once, no infinite behavior
 }
 
 // ----------------------
-// Render: Collage (yellow blocks in random layout)
+// Render: Collage (Linear strips: 1 item per strip)
 // ----------------------
-function createCollageItem(item, strip) {
-  const el = document.createElement("article");
-  el.className = "item";
-
-  const img = document.createElement("img");
-  img.src = item.main_image;
-  img.alt = item.title ? item.title : "Street dump photo";
-  img.loading = "lazy";
-
-  el.appendChild(img);
-
-  const label = document.createElement("div");
-  label.className = "item-label";
-  label.innerHTML = `
-    <div><strong>ITEM NAME:</strong> ${escapeHtml(item.title || "")}</div>
-    <div><strong>RARITY LEVEL:</strong> ${escapeHtml(item.rarity || "")}</div>
-  `;
-  el.appendChild(label);
-
-  // size presets (feel like template: mix of small/medium/large)
-  const presets = [
-    { w: rand(210, 290), h: rand(150, 210) },
-    { w: rand(260, 360), h: rand(190, 260) },
-    { w: rand(320, 460), h: rand(240, 340) }
-  ];
-  const p = presets[Math.floor(Math.random() * presets.length)];
-
-  // positions inside strip
-  const stripW = strip.clientWidth || window.innerWidth;
-  const stripH = strip.clientHeight || 1200;
-
-  const x = rand(10, Math.max(20, stripW - p.w - 10));
-  const y = rand(40, Math.max(80, stripH - p.h - 90));
-  const rot = rand(-18, 18);
-
-  el.style.width = `${p.w}px`;
-  el.style.height = `${p.h}px`;
-  el.style.left = `${x}px`;
-  el.style.top = `${y}px`;
-  el.style.transform = `rotate(${rot}deg)`;
-
-  // Interaction: hover => popup zoom (no click)
-  if (!isTouch) {
-    el.addEventListener("mouseenter", (e) => {
-      setZoomContent(item);
-      showZoomAt(e.clientX, e.clientY);
-    });
-    el.addEventListener("mousemove", (e) => {
-      showZoomAt(e.clientX, e.clientY);
-    });
-    el.addEventListener("mouseleave", hideZoom);
-  } else {
-    // Mobile: tap to toggle zoom
-    el.addEventListener("click", () => {
-      const hidden = zoomEl.classList.contains("hidden");
-      if (hidden) {
-        setZoomContent(item);
-        showZoomAt(window.innerWidth * 0.5, window.innerHeight * 0.25);
-      } else {
-        hideZoom();
-      }
-    });
-  }
-
-  strip.appendChild(el);
-}
-
-function renderCollageSlice(slice) {
+function renderCollage(items) {
   if (!collageEl) return;
+  collageEl.innerHTML = "";
 
-  // each strip is a "canvas chunk"
-  const strip = document.createElement("div");
-  strip.className = "strip";
-  collageEl.appendChild(strip);
+  items.slice(0, 20).forEach((item, index) => {
+    // Each item = one "paragraph"
+    const strip = document.createElement("div");
+    strip.className = "strip";
+    collageEl.appendChild(strip);
 
-  slice.forEach(item => createCollageItem(item, strip));
+    const el = document.createElement("article");
+    el.className = "item";
+
+    const img = document.createElement("img");
+    img.src = item.main_image;
+    img.alt = item.title ? item.title : "Street dump photo";
+    img.loading = "lazy";
+    el.appendChild(img);
+
+    const label = document.createElement("div");
+    label.className = "item-label";
+    label.innerHTML = `
+      <div><strong>ITEM NAME:</strong> ${escapeHtml(item.title || "")}</div>
+      <div><strong>RARITY LEVEL:</strong> ${escapeHtml(item.rarity || "")}</div>
+    `;
+    el.appendChild(label);
+
+    // BIGGER sizes (tweak here if you want even bigger)
+    const width = rand(700, 980);
+    const height = rand(460, 650);
+
+    const stripW = strip.clientWidth || window.innerWidth;
+    const pad = 24;
+
+    // left-right alternating like your template
+    const side = (index % 2 === 0) ? "left" : "right";
+    const drift = rand(-80, 80);
+
+    let x;
+    if (side === "left") {
+      x = pad + rand(0, 160) + drift;
+    } else {
+      x = stripW - width - pad - rand(0, 160) + drift;
+    }
+
+    // within each strip: slight vertical offset
+    const y = rand(70, 170);
+
+    // rotation: light, not messy
+    const rot = rand(-10, 10);
+
+    el.style.width = `${width}px`;
+    el.style.height = `${height}px`;
+    el.style.left = `${clamp(x, pad, stripW - width - pad)}px`;
+    el.style.top = `${y}px`;
+    el.style.transform = `rotate(${rot}deg)`;
+
+    attachZoomInteraction(el, item);
+    strip.appendChild(el);
+  });
 }
 
 // ----------------------
-// Render: List view
+// Render: List (still supports zoom on hover)
 // ----------------------
-function renderListSlice(slice) {
+function renderList(items) {
   if (!listGridEl) return;
+  listGridEl.innerHTML = "";
 
-  slice.forEach(item => {
+  items.slice(0, 20).forEach(item => {
     const card = document.createElement("article");
     card.className = "card";
 
@@ -299,24 +290,7 @@ function renderListSlice(slice) {
       <div><strong>TAG:</strong> ${escapeHtml(item.tag || "")}</div>
     `;
 
-    if (!isTouch) {
-      card.addEventListener("mouseenter", (e) => {
-        setZoomContent(item);
-        showZoomAt(e.clientX, e.clientY);
-      });
-      card.addEventListener("mousemove", (e) => showZoomAt(e.clientX, e.clientY));
-      card.addEventListener("mouseleave", hideZoom);
-    } else {
-      card.addEventListener("click", () => {
-        const hidden = zoomEl.classList.contains("hidden");
-        if (hidden) {
-          setZoomContent(item);
-          showZoomAt(window.innerWidth * 0.5, window.innerHeight * 0.25);
-        } else {
-          hideZoom();
-        }
-      });
-    }
+    attachZoomInteraction(card, item);
 
     card.appendChild(img);
     card.appendChild(meta);
@@ -325,37 +299,22 @@ function renderListSlice(slice) {
 }
 
 // ----------------------
-// Infinite scroll
-// - each time you near bottom, render another strip
-// - if only 20 items, we loop them so it can go "endlessly"
+// Render according to current view
 // ----------------------
-function getNextSlice() {
-  if (filteredItems.length === 0) return [];
-
-  const slice = [];
-  for (let i = 0; i < perStrip; i++) {
-    // loop through items endlessly
-    const idx = (renderedCount + i) % filteredItems.length;
-    slice.push(filteredItems[idx]);
-  }
-  renderedCount += perStrip;
-  return slice;
-}
-
-function renderNextStrip() {
-  const slice = getNextSlice();
-  if (slice.length === 0) return;
+function renderView() {
+  hideZoom();
 
   if (viewMode === "collage") {
-    renderCollageSlice(slice);
+    collageEl.classList.remove("hidden");
+    listEl.classList.add("hidden");
+    viewToggleBtn.textContent = "Switch to List";
+    renderCollage(filteredItems);
   } else {
-    renderListSlice(slice);
+    collageEl.classList.add("hidden");
+    listEl.classList.remove("hidden");
+    viewToggleBtn.textContent = "Switch to Collage";
+    renderList(filteredItems);
   }
-}
-
-function onScroll() {
-  const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 900;
-  if (nearBottom) renderNextStrip();
 }
 
 // ----------------------
@@ -363,25 +322,7 @@ function onScroll() {
 // ----------------------
 function setView(mode) {
   viewMode = mode;
-
-  if (mode === "collage") {
-    if (collageEl) collageEl.classList.remove("hidden");
-    if (listEl) listEl.classList.add("hidden");
-    if (viewToggleBtn) viewToggleBtn.textContent = "Switch to List";
-  } else {
-    if (collageEl) collageEl.classList.add("hidden");
-    if (listEl) listEl.classList.remove("hidden");
-    if (viewToggleBtn) viewToggleBtn.textContent = "Switch to Collage";
-  }
-
-  // re-render from current filtered dataset
-  renderedCount = 0;
-  if (collageEl) collageEl.innerHTML = "";
-  if (listGridEl) listGridEl.innerHTML = "";
-  hideZoom();
-
-  // first strip in new mode
-  renderNextStrip();
+  renderView();
 }
 
 // ----------------------
@@ -399,7 +340,6 @@ if (viewToggleBtn) {
   });
 }
 
-window.addEventListener("scroll", onScroll);
 window.addEventListener("resize", hideZoom);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") hideZoom();
