@@ -32,27 +32,28 @@ const isTouch = window.matchMedia("(hover: none)").matches;
 // - You asked for ./images/1.jpg format
 // ----------------------
 const items = [
-  { title: "Dump 1",  main_image: "./images/1.jpg",  zoom_image: "./images/1.jpg",  tag: "plastic", rarity: "common" },
-  { title: "Dump 2",  main_image: "./images/2.jpg",  zoom_image: "./images/2.jpg",  tag: "plastic", rarity: "common" },
-  { title: "Dump 3",  main_image: "./images/3.jpg",  zoom_image: "./images/3.jpg",  tag: "paper",   rarity: "uncommon" },
-  { title: "Dump 4",  main_image: "./images/4.jpg",  zoom_image: "./images/4.jpg",  tag: "organic", rarity: "common" },
-  { title: "Dump 5",  main_image: "./images/5.jpg",  zoom_image: "./images/5.jpg",  tag: "plastic", rarity: "rare" },
-  { title: "Dump 6",  main_image: "./images/6.jpg",  zoom_image: "./images/6.jpg",  tag: "metal",   rarity: "uncommon" },
-  { title: "Dump 7",  main_image: "./images/7.jpg",  zoom_image: "./images/7.jpg",  tag: "paper",   rarity: "common" },
-  { title: "Dump 8",  main_image: "./images/8.jpg",  zoom_image: "./images/8.jpg",  tag: "plastic", rarity: "legendary" },
-  { title: "Dump 9",  main_image: "./images/9.jpg",  zoom_image: "./images/9.jpg",  tag: "unknown", rarity: "rare" },
-  { title: "Dump 10", main_image: "./images/10.jpg", zoom_image: "./images/10.jpg", tag: "plastic", rarity: "common" },
-  { title: "Dump 11", main_image: "./images/11.jpg", zoom_image: "./images/11.jpg", tag: "organic", rarity: "uncommon" },
-  { title: "Dump 12", main_image: "./images/12.jpg", zoom_image: "./images/12.jpg", tag: "paper",   rarity: "common" },
-  { title: "Dump 13", main_image: "./images/13.jpg", zoom_image: "./images/13.jpg", tag: "metal",   rarity: "rare" },
-  { title: "Dump 14", main_image: "./images/14.jpg", zoom_image: "./images/14.jpg", tag: "plastic", rarity: "common" },
-  { title: "Dump 15", main_image: "./images/15.jpg", zoom_image: "./images/15.jpg", tag: "unknown", rarity: "epic" },
-  { title: "Dump 16", main_image: "./images/16.jpg", zoom_image: "./images/16.jpg", tag: "paper",   rarity: "common" },
-  { title: "Dump 17", main_image: "./images/17.jpg", zoom_image: "./images/17.jpg", tag: "plastic", rarity: "uncommon" },
-  { title: "Dump 18", main_image: "./images/18.jpg", zoom_image: "./images/18.jpg", tag: "metal",   rarity: "rare" },
-  { title: "Dump 19", main_image: "./images/19.jpg", zoom_image: "./images/19.jpg", tag: "organic", rarity: "common" },
-  { title: "Dump 20", main_image: "./images/20.jpg", zoom_image: "./images/20.jpg", tag: "plastic", rarity: "legendary" }
+  { title: "Dump 1",  main_image: "./images/1.png",  zoom_image: "./images/1.png",  tag: "plastic", rarity: "common" },
+  { title: "Dump 2",  main_image: "./images/2.png",  zoom_image: "./images/2.png",  tag: "plastic", rarity: "common" },
+  { title: "Dump 3",  main_image: "./images/3.png",  zoom_image: "./images/3.png",  tag: "paper",   rarity: "uncommon" },
+  { title: "Dump 4",  main_image: "./images/4.png",  zoom_image: "./images/4.png",  tag: "organic", rarity: "common" },
+  { title: "Dump 5",  main_image: "./images/5.png",  zoom_image: "./images/5.png",  tag: "plastic", rarity: "rare" },
+  { title: "Dump 6",  main_image: "./images/6.png",  zoom_image: "./images/6.png",  tag: "metal",   rarity: "uncommon" },
+  { title: "Dump 7",  main_image: "./images/7.png",  zoom_image: "./images/7.png",  tag: "paper",   rarity: "common" },
+  { title: "Dump 8",  main_image: "./images/8.png",  zoom_image: "./images/8.png",  tag: "plastic", rarity: "legendary" },
+  { title: "Dump 9",  main_image: "./images/9.png",  zoom_image: "./images/9.png",  tag: "unknown", rarity: "rare" },
+  { title: "Dump 10", main_image: "./images/10.png", zoom_image: "./images/10.png", tag: "plastic", rarity: "common" },
+  { title: "Dump 11", main_image: "./images/11.png", zoom_image: "./images/11.png", tag: "organic", rarity: "uncommon" },
+  { title: "Dump 12", main_image: "./images/12.png", zoom_image: "./images/12.png", tag: "paper",   rarity: "common" },
+  { title: "Dump 13", main_image: "./images/13.png", zoom_image: "./images/13.png", tag: "metal",   rarity: "rare" },
+  { title: "Dump 14", main_image: "./images/14.png", zoom_image: "./images/14.png", tag: "plastic", rarity: "common" },
+  { title: "Dump 15", main_image: "./images/15.png", zoom_image: "./images/15.png", tag: "unknown", rarity: "epic" },
+  { title: "Dump 16", main_image: "./images/16.png", zoom_image: "./images/16.png", tag: "paper",   rarity: "common" },
+  { title: "Dump 17", main_image: "./images/17.png", zoom_image: "./images/17.png", tag: "plastic", rarity: "uncommon" },
+  { title: "Dump 18", main_image: "./images/18.png", zoom_image: "./images/18.png", tag: "metal",   rarity: "rare" },
+  { title: "Dump 19", main_image: "./images/19.png", zoom_image: "./images/19.png", tag: "organic", rarity: "common" },
+  { title: "Dump 20", main_image: "./images/20.png", zoom_image: "./images/20.png", tag: "plastic", rarity: "legendary" }
 ];
+
 
 // ----------------------
 // State
