@@ -214,3 +214,99 @@ select{
   .zoom{ width: 200px; }
   .zoom-card img{ height: 140px; }
 }
+/* ===== Zoom HUD ===== */
+.zoom{
+  position: fixed;
+  z-index: 9999;
+}
+
+.zoom-card{
+  width: 280px;
+  background: #caff3b;
+  border: 1px solid rgba(0,0,0,.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,.22);
+  padding: 10px;
+}
+
+.zoom-card img{
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,.25);
+  margin-bottom: 10px;
+}
+
+.zoom-meta{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: #000;
+}
+
+.hud-top{
+  display: grid;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.hud-title{
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.hud-rarity{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border: 1px solid rgba(0,0,0,.35);
+  background: rgba(255,255,255,.35);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.hud-bars{
+  margin: 8px 0 10px;
+}
+
+.rarity-bar{
+  height: 8px;
+  border: 1px solid rgba(0,0,0,.35);
+  background: rgba(255,255,255,.25);
+  overflow: hidden;
+}
+
+.rarity-bar span{
+  display: block;
+  height: 100%;
+  width: 20%;
+  background: rgba(0,0,0,.55);
+}
+
+.hud-bottom{
+  display: grid;
+  gap: 6px;
+}
+
+.hud-line{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.hud-line .k{
+  opacity: .7;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hud-line .v{
+  font-weight: 800;
+  text-align: right;
+}
