@@ -1,0 +1,205 @@
+:root{
+  --bg: #ffffff;
+  --ink: #0a0a0a;
+  --lime: #bfff3a;      /* green popup */
+  --yellow: #f4f04d;    /* block */
+  --muted: #666;
+  --border: rgba(0,0,0,.18);
+
+  --type-xs: 12px;
+  --type-sm: 14px;
+  --type-md: 16px;
+  --type-lg: 22px;
+}
+
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+}
+
+.site-header{
+  padding: 18px 18px 10px 18px;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  z-index: 50;
+}
+
+h1{
+  margin: 0 0 10px 0;
+  font-size: var(--type-lg);
+  letter-spacing: .08em;
+  font-weight: 800;
+}
+
+.site-nav{
+  display:flex;
+  gap:14px;
+  margin-bottom: 10px;
+}
+.site-nav a{
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.site-nav a[aria-current="page"]{
+  border-bottom-color: var(--ink);
+}
+
+.controls{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.control-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  font-size: var(--type-xs);
+}
+label{ color: var(--muted); }
+select{
+  font: inherit;
+  padding: 6px 8px;
+  border:1px solid var(--border);
+  background:#fff;
+}
+.btn{
+  font: inherit;
+  padding: 6px 10px;
+  border:1px solid var(--border);
+  background:#fff;
+  cursor:pointer;
+}
+.hint{
+  margin:0;
+  font-size: var(--type-xs);
+  color: var(--muted);
+}
+
+.site-main{
+  padding: 18px;
+}
+
+.hidden{ display:none !important; }
+
+/* ===== Collage View ===== */
+.collage{
+  position: relative;
+  width: 100%;
+}
+
+/* each "strip" is one tall canvas chunk; we append many strips to create endless scroll */
+.strip{
+  position: relative;
+  width: 100%;
+  height: min(1100px, 140vh);
+  margin: 0 0 22px 0;
+}
+
+/* yellow block */
+.item{
+  position: absolute;
+  background: var(--yellow);
+  border: 1px solid rgba(0,0,0,.08);
+  overflow: hidden;
+  cursor: default;
+  transform-origin: center;
+}
+
+.item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+  image-rendering: pixelated; /* gives that pixel vibe if source is low-res */
+}
+
+/* small label under each (like template) */
+.item-label{
+  position: absolute;
+  left: 6px;
+  bottom: -28px;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ===== List View ===== */
+.list-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.card{
+  border: 1px solid var(--border);
+  padding: 10px;
+}
+.card img{
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+}
+.card .meta{
+  font-size: var(--type-xs);
+  margin-top: 8px;
+  color: var(--ink);
+}
+.card .meta div{ margin-top: 4px; }
+
+/* ===== Zoom Popup ===== */
+.zoom{
+  position: fixed;
+  width: 230px;
+  z-index: 999;
+  pointer-events: none; /* so hover stays on original item */
+}
+.zoom-card{
+  margin:0;
+  background: var(--lime);
+  border: 1px solid rgba(0,0,0,.25);
+  padding: 8px;
+}
+.zoom-card img{
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(120%);
+}
+.zoom-meta{
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.25;
+}
+.meta-label{
+  font-weight: 800;
+}
+
+/* Footer */
+.site-footer{
+  padding: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--type-xs);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .list-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px){
+  .site-main{ padding: 12px; }
+  .strip{ height: 120vh; }
+  .list-grid{ grid-template-columns: 1fr; }
+  .zoom{ width: 200px; }
+  .zoom-card img{ height: 140px; }
+}

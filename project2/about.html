@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Find the Dumps in the City</title>
+  <link rel="icon" href="./assets/favicon.ico" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <h1>ABOUT</h1>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="./index.html">Catalog</a>
+      <a href="./about.html" aria-current="page">About</a>
+    </nav>
+  </header>
+
+  <main class="site-main about">
+    <section class="about-card">
+      <p>
+        This is a living catalog of street dumps: low-resolution, pixelated traces of what the city leaves behind.
+        Each item is stored in a Google Sheet and rendered live on the page. The interface favors drifting,
+        stumbling upon, and zooming into evidence—without clicking.
+      </p>
+      <p class="credit">Designed & coded by Shiyu Wang.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Shiyu Wang.</small>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
