@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Find the Dumps in the City</title>
-  <meta name="description" content="A living catalog of street dumps: blurred, pixelated, and zoomed-in evidence." />
+  <title>DUMPS AS FOUND</title>
+
+  <meta
+    name="description"
+    content="A living catalog of urban dumps — collected, ranked, and zoomed like a game HUD."
+  />
+
   <link rel="icon" href="./assets/favicon.ico" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
+
+  <!-- ================= HEADER ================= -->
   <header class="site-header">
-    <h1>URBAN DUMPS</h1>
+    <h1>DUMPS AS FOUND</h1>
 
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="./index.html" aria-current="page">Catalog</a>
+      <a href="./dumps.html" aria-current="page">Catalog</a>
       <a href="./about.html">About</a>
     </nav>
 
@@ -37,34 +44,83 @@
         </button>
       </div>
 
-     
+      <p class="hint">
+        Hover (or tap) to zoom. Scroll down to explore.
+      </p>
     </section>
   </header>
 
+  <!-- ================= MAIN ================= -->
   <main id="main" class="site-main">
-    <section id="collage" class="collage" aria-label="Collage view"></section>
 
-    <section id="list" class="list hidden" aria-label="List view">
+    <!-- Collage / strip view -->
+    <section
+      id="collage"
+      class="collage"
+      aria-label="Collage view"
+    ></section>
+
+    <!-- List view -->
+    <section
+      id="list"
+      class="list hidden"
+      aria-label="List view"
+    >
       <div class="list-grid" id="listGrid"></div>
     </section>
+
   </main>
 
-  <!-- Zoom popup (green box) -->
-  <aside id="zoom" class="zoom hidden" aria-live="polite">
+  <!-- ================= ZOOM HUD ================= -->
+  <aside
+    id="zoom"
+    class="zoom hidden"
+    aria-live="polite"
+  >
     <figure class="zoom-card">
+
       <img id="zoomImg" alt="" />
+
+      <!-- HUD-style meta -->
       <figcaption class="zoom-meta">
-        <div class="meta-line"><span class="meta-label">ITEM NAME:</span> <span id="zoomTitle"></span></div>
-        <div class="meta-line"><span class="meta-label">RARITY LEVEL:</span> <span id="zoomRarity"></span></div>
-        <div class="meta-line"><span class="meta-label">TAG:</span> <span id="zoomTag"></span></div>
+
+        <div class="hud-top">
+          <div class="hud-title" id="zoomTitle"></div>
+          <div class="hud-rarity" id="zoomRarity"></div>
+        </div>
+
+        <div class="hud-bars">
+          <div class="rarity-bar">
+            <span id="rarityFill"></span>
+          </div>
+        </div>
+
+        <div class="hud-bottom">
+          <div class="hud-line">
+            <span class="k">ZOOM OBJECT</span>
+            <span class="v" id="zoomObj"></span>
+          </div>
+
+          <div class="hud-line">
+            <span class="k">TAG</span>
+            <span class="v" id="zoomTag"></span>
+          </div>
+        </div>
+
       </figcaption>
+
     </figure>
   </aside>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
-    <small>© <span id="year"></span> Shiyu Wang — living catalog prototype.</small>
+    <small>
+      © <span id="year"></span> Shiyu Wang — living catalog prototype
+    </small>
   </footer>
 
+  <!-- ================= SCRIPT ================= -->
   <script src="./script.js" defer></script>
+
 </body>
 </html>
