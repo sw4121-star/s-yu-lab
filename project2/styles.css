@@ -22,14 +22,14 @@ body{
 }
 
 .site-header{
-  padding: 18px 18px 10px 18px;
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,.88);
+  z-index: 999;
+  background: rgba(255,255,255,.9);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--border);
-  z-index: 50;
+  border-bottom: 1px solid rgba(0,0,0,.18);
 }
+
 
 h1{
   margin: 0 0 10px 0;
