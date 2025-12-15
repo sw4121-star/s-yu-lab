@@ -24,7 +24,7 @@ body{
 .site-header{
   position: sticky;
   top: 0;
-  width: 100%;             
+  width: 100%;
   z-index: 999;
 
   background: rgba(255,255,255,0.92);
@@ -32,6 +32,15 @@ body{
 
   border-bottom: 1px solid rgba(0,0,0,0.18);
 }
+
+.site-header > *{
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 
 
 h1{
