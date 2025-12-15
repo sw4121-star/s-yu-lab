@@ -41,6 +41,16 @@ body{
   padding-right: 24px;
 }
 
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+}
+
+.site-main{
+  padding-top: 220px; 
+}
 
 
 h1{
